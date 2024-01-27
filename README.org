@@ -1,0 +1,72 @@
+#+TITLE: Sane Modules
+#+AUTHOR: Leslie S. Russell
+#+EMAIL: lesliesrussell@gmail.com
+
+* Introduction
+  Sane Modules is an Emacs Lisp package designed to efficiently manage and load custom Emacs modules. It allows users to maintain a structured and clean Emacs environment by organizing modules into a specified directory and loading them as needed.
+
+* Features
+  - Manage custom Emacs modules in a dedicated directory.
+  - Specify and load modules easily with a simple configuration.
+  - Generate new module templates quickly.
+  - Optional timing reports for module loading to aid in performance tuning.
+
+* Installation
+  To install Sane Modules, clone the repository or download the 'sane-modules.el' file into your Emacs load path. Then, add the following to your Emacs configuration:
+
+  #+BEGIN_SRC emacs-lisp
+    (require 'sane-modules)
+  #+END_SRC
+
+* Configuration
+  Configure Sane Modules by setting the base directory for your modules and listing the modules you want to load:
+
+  #+BEGIN_SRC emacs-lisp
+    (setq sane-module-base-directory "~/path/to/your/modules/")
+    (setq sane-module-module-list '(module1 module2 module3))
+  #+END_SRC
+
+  Replace the paths and module names with your own setup.
+
+* Usage
+  ** Loading Modules
+     Load your configured modules with:
+
+     #+BEGIN_SRC emacs-lisp
+       (sane-modules-load-modules
+	sane-module-base-directory
+	sane-module-module-list)
+     #+END_SRC
+
+     Optionally, enable timing reports by setting the timing flag to 't':
+
+     #+BEGIN_SRC emacs-lisp
+       (sane-modules-load-modules
+	sane-module-base-directory
+	sane-module-module-list t)
+     #+END_SRC
+
+  ** Creating New Modules
+     Generate a new module with a predefined template:
+
+     #+BEGIN_SRC emacs-lisp
+       (sane-create-project-with-template)
+     #+END_SRC
+
+     Follow the interactive prompts to specify the directory and module name.
+
+* Customization
+  Customize the module template and other settings via Emacs customization interface. Access it through:
+
+  #+BEGIN_SRC emacs-lisp
+    (customize-group 'sane-modules)
+  #+END_SRC
+
+* Contributions
+  Contributions to Sane Modules are welcome. Please submit pull requests or report issues via the project's repository.
+
+* License
+  Sane Modules is released under the MIT License, see the LICENSE file for more details.
+
+* Contact
+  For questions or feedback, please contact lesliesrussell@gmail.com.
